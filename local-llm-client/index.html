@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local LLM Client Support</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans leading-relaxed">
+    <div class="container mx-auto max-w-3xl p-4 sm:p-6 md:p-8">
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 text-center mb-2">
+          How to Use the Local LLM Client
+        </h1>
+        <p class="text-gray-600">
+          This page explains the setup procedures required to use the Local LLM
+          Client app.<br />It provides a step-by-step guide on
+          <strong>starting the LM Studio server</strong> and
+          <strong>configuring the app-side connection</strong>.
+        </p>
+      </header>
+
+      <main>
+        <!-- Table of Contents -->
+        <section
+          class="bg-white shadow-lg rounded-xl p-6 mb-8 border border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            📜 Table of Contents
+          </h2>
+          <ul class="list-disc list-inside space-y-2">
+            <li>
+              <a href="#demo-video" class="text-blue-600 hover:underline"
+                >Demo Video (App in Action)</a
+              >
+            </li>
+            <li>
+              <a href="#step1" class="text-blue-600 hover:underline"
+                >STEP 1: Configure Local LLM Server (LM Studio)</a
+              >
+            </li>
+            <li>
+              <a href="#step2" class="text-blue-600 hover:underline"
+                >STEP 2: Configure the App (iOS side)</a
+              >
+            </li>
+            <li>
+              <a href="#faq" class="text-blue-600 hover:underline"
+                >Frequently Asked Questions (FAQ)</a
+              >
+            </li>
+            <li>
+              <a href="#notes" class="text-blue-600 hover:underline">Notes</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Demo Video -->
+        <section
+          id="demo-video"
+          class="bg-white shadow-lg rounded-xl p-6 mb-8 border border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            🎥 Demo Video (App in Action)
+          </h2>
+          <p class="text-gray-600 mb-4">
+            In the following video, you can see the overall operation of the app
+            (server settings, sending/receiving chats, using/deleting chat
+            history).
+          </p>
+          <div class="bg-gray-200 rounded-lg overflow-hidden">
+            <video
+              class="w-full md:w-1/2 mx-auto"
+              controls
+              src="./videos/app-demo.mp4"
+            ></video>
+          </div>
+        </section>
+
+        <!-- STEP 1 -->
+        <section
+          id="step1"
+          class="bg-white shadow-lg rounded-xl p-6 mb-8 border border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            ✅ STEP 1: Configure Local LLM Server (LM Studio)
+          </h2>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+              🎯 Objective
+            </h3>
+            <p class="text-gray-600">
+              Start the local server (LM Studio) for the app to connect to and
+              make it accessible within the LAN.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+              🔧 Steps (On your PC)
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-2 text-gray-600 mb-4 bg-gray-50 p-4 rounded-md"
+            >
+              <li>Launch LM Studio</li>
+              <li>Click on the [Developer] tab</li>
+              <li>If [Status: Stopped], toggle [Start server] to ON</li>
+              <li>Open [Settings] and turn ON [Serve on Local Network]</li>
+              <li>
+                Take note of the <strong>IP address</strong> displayed in
+                [Reachable at:]
+              </li>
+            </ol>
+            <div class="bg-gray-200 rounded-lg overflow-hidden">
+              <video
+                class="w-full"
+                controls
+                src="./videos/pc-settings.mp4"
+              ></video>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section
+          id="step2"
+          class="bg-white shadow-lg rounded-xl p-6 mb-8 border border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            ✅ STEP 2: Configure the App (iOS side)
+          </h2>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+              🎯 Objective
+            </h3>
+            <p class="text-gray-600">
+              Configure the app to connect to the local LLM server.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+              📱 Steps (On the App)
+            </h3>
+            <ol
+              class="list-decimal list-inside space-y-2 text-gray-600 bg-gray-50 p-4 rounded-md"
+            >
+              <li>Tap [No Models >] at the top center of the screen</li>
+              <li>Select [LM Studio] or [Ollama] for the [API Provider]</li>
+              <li>
+                Enter the <strong>IP address from STEP 1</strong> into the
+                [Host] field
+              </li>
+              <li>
+                If necessary, enter a custom port number in the [Port] field
+                (Default for LM Studio: [1234])
+              </li>
+              <li>Tap [Test Connection] to verify the connection</li>
+              <li>
+                Once the connection is successful, select a [Language Model]
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section
+          id="faq"
+          class="bg-white shadow-lg rounded-xl p-6 mb-8 border border-gray-200"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            💬 Frequently Asked Questions (FAQ)
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-semibold text-gray-700">
+                Q. Is an internet connection required?
+              </h3>
+              <p class="text-gray-600 mt-1">
+                A. No, this app operates within your local network and does not
+                require an internet connection.
+              </p>
+            </div>
+            <hr />
+            <div>
+              <h3 class="font-semibold text-gray-700">
+                Q. Where can I review the tutorial again?
+              </h3>
+              <p class="text-gray-600 mt-1">
+                A. You can re-run it anytime from the [View Tutorial] button on
+                the settings screen.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notes -->
+        <section id="notes" class="bg-gray-100 rounded-lg p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-3">📝 Notes</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>
+              This app is intended for users who can set up their own local LLM
+              server (Ollama / LM Studio).
+            </li>
+            <li>
+              Please refer to the videos above for detailed operational checks.
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="text-center text-sm text-gray-500 mt-8 py-4 border-t">
+        <p>&copy; 2025 Local LLM Client Support</p>
+      </footer>
+    </div>
+  </body>
+</html>
